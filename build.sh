@@ -11,11 +11,22 @@ fi
 PKG=$(basename $PWD).zip
 
 if [ $mode = all ]; then
-pipenv lock -r  > requirements.txt
-pip3 install --upgrade --target deps/ -r requirements.txt
-( cd deps; zip -r9 ../$PKG .)
+    rm $PKG
+
+    if [ -e Pipenv ]; then
+        pipenv lock -r  > requirements.txt
+        pip3 install --upgrade --target deps/ -r requirements.txt
+        ( cd deps; zip -r9 ../$PKG .)
+    fi
+
+    if [ -e package.json ]; then
+        yarn install
+        zip -r9 $PKG node_modules
+    fi
 fi
 
-( cd src; zip ../$PKG *.py **/*.py)
+( cd src; zip -r ../$PKG . )
+
+echo "Ok, the lambda code is in $PKG. now run ./deploy.sh function_name"
 
 
