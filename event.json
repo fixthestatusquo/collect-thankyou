@@ -1,0 +1,47 @@
+{
+    "Records": [
+        {
+            "messageId": "57c49ee0-f430-4a4d-91a0-194ce77dfc86",
+            "receiptHandle": "AQEBLVYsXltlXdLtMpmxsPyAwUFibAfAiYgYtA70LVP0G8MWxxfiWxkj+/qsQ3tvzOCbEX0UeI+lCJgwnzR7JRpv0bQIe4Bo8soDwTvIVXAGOrEQoYfC3rNJNUJQQRsm76ykit3bxBVlBdoTddtTUnkeDaZ7gIoIksqsxzFZg4e4EmnwHx4lj+wJGPqqMo0cq3r8Ig68Gy9yHh3wLO8SkswD4n2ag6Nr5FEmsBF3fhFkujen42g/f3YsjEo8JVdAdW1/zxZtA4f/afBxLhxYeWdTugxXkg/uTEK3vYAeSe8qFifREWeItn63V4K+FaucDKWvF6QkuSe1Cuhhf/cR+D6wYGAn5IbRBPO7OF00bpias2sFpT605y6bchNqIlbZDTeldlXVsKFTLaTfAJ/woNbVOA==",
+          "body":"{\"action\":{\"actionType\":\"register\",\"createdAt\":\"2020-06-18T16:21:09\",\"fields\":{\"postcardUrl2\":\"https://pepe\"}},\"actionId\":13,\"actionPage\":{\"locale\":\"de\",\"thankYouTemplateRef\":\"https://collect-backend.campax.org/wp-json/wp/v2/campaign/51\",\"url\":\"https://collect.campax.org/32\"},\"actionPageId\":27,\"campaign\":{\"externalId\":40,\"name\":\"stop-palmol\"},\"campaignId\":35,\"contact\":{\"email\":\"dump+test1@cahoots.pl\",\"firstName\":\"Marcin\",\"nonce\":\"AkegQpUgaSBr17X0dbP2V_zH7HZOa8XH\",\"payload\":\"oNlu63bVqDqVsRD87PbaQd9C32b0Z_1oA3BCMmw60WItkmY7LtHFo8t7QPy6qtuIdVJdQdmoXKpSzLE7VNSzW_KDDuNk3lpbBOM63_pw-c7y3hymYDiAo6PlRR5fDHqgv-s5-6WZzzfibDHT9U4098qwGOXskoTnraPXaCkBXFcTty4qylVR9omjs1AtYCtHOoaoeNd7mSgFDtj6_mtT7BrFbJiOh4frm9WW\",\"publicKey\":\"zVEbdY9-qdodWYov7ikF1Ge6gQXZOxNwlU6swNkGywk\",\"ref\":\"YMmoCyn5lmACjI9h3RwpTrgmw8DAMocZhe2jvQ6sIWw\",\"signKey\":\"uRftV1Kdnl6CynpvHvTOwvP6XnwGcONFZZJSxOsZ3kE\"},\"orgId\":2,\"privacy\":{\"communication\":true,\"givenAt\":\"2020-06-18T16:21:09Z\"},\"schema\":\"proca:action:1\",\"source\":null,\"stage\":\"deliver\"}",
+            "attributes": {
+                "ApproximateReceiveCount": "1",
+                "SentTimestamp": "1591822111757",
+                "SenderId": "AIDA4V2VUGUCTFMWC5XCS",
+                "ApproximateFirstReceiveTimestamp": "1591822111762"
+            },
+            "messageAttributes": {
+                "Schema": {
+                    "stringValue": "proca:action:1",
+                    "stringListValues": [],
+                    "binaryListValues": [],
+                    "dataType": "String"
+                },
+                "CampaignName": {
+                    "stringValue": "r1",
+                    "stringListValues": [],
+                    "binaryListValues": [],
+                    "dataType": "String"
+                },
+                "Stage": {
+                    "stringValue": "deliver",
+                    "stringListValues": [],
+                    "binaryListValues": [],
+                    "dataType": "String"
+                },
+                "ActionType": {
+                    "stringValue": "download",
+                    "stringListValues": [],
+                    "binaryListValues": [],
+                    "dataType": "String"
+                }
+            },
+            "md5OfMessageAttributes": "8537a29282c658a85377488585005fa0",
+            "md5OfBody": "c770c9549e772fe5cb045ee6d78deab6",
+            "eventSource": "aws:sqs",
+            "eventSourceARN": "arn:aws:sqs:eu-central-1:871521072389:proca_delivery",
+            "awsRegion": "eu-central-1"
+        }
+    ]
+}
+
