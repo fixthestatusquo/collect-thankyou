@@ -16,6 +16,6 @@ pip3 install --upgrade --target deps/ -r requirements.txt
 ( cd deps; zip -r9 ../$PKG .)
 fi
 
-( cd src; zip ../$PKG *.py)
+( cd src; zip ../$PKG *.py **/*.py)
 
 

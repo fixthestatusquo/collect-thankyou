@@ -7,6 +7,8 @@ import boto3
 import pystache
 import requests
 import os
+import logging
+
 
 class Email:
     @staticmethod
@@ -17,14 +19,16 @@ class Email:
         _.templateRef = templateRef
         _.subject = ''
         _.body = ''
+        _.slug = ''
+
         if sender:
             if isinstance(sender, str):
                 _.sender = Address(addr_spec=sender)
             elif isinstance(sender, Address):
                 _.sender = sender
         else:
-            _.sender = Address(addr_spec=os.environ.get('MAIL_FROM_EMAIL', 'collect@campax.org'),
-                               display_name=os.environ.get('MAIL_FROM_NAME', 'Campax'))
+            _.sender = Address(addr_spec=os.environ.get('FROM_EMAIL', 'collect@campax.org'),
+                               display_name=os.environ.get('FROM_NAME', 'Campax'))
         _.attachments = []
 
 
@@ -33,13 +37,24 @@ class Email:
 
         if resp.ok:
             camp = resp.json()
-            _.body = camp['acf'][ 'thank_you_email_body (PDF - EMAIL)']
-            _.subject = camp['acf']['thank_you_email_subject']
+            try:
+                _.body = camp['acf'][ 'thank_you_email_body']
+                _.subject = camp['acf']['thank_you_email_subject']
+                _.slug = camp['slug']
+            except KeyError as e:
+                logging.error("no necessary keys in Campaign data:")
+                logging.error(camp)
+                raise e
+                
         else:
             raise StandardError("Cannot fetch mail template ({})".format(resp.reason))
 
     def add_attachment(_, filename, blob):
         _.attachments.append({'filename': filename, 'blob': blob})
+
+    def has_content(_):
+        return len(_.subject) > 0 and len(_.body) > 0
+            
 
     
     def build(_, contact):
@@ -63,5 +78,4 @@ class Email:
             Destinations=[msg['To']],
             RawMessage={'Data': msg.as_string()}
         )
-        print(result)
         return result
