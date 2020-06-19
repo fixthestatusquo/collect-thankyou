@@ -13,7 +13,7 @@ PKG=$(basename $PWD).zip
 if [ $mode = all ]; then
     rm $PKG
 
-    if [ -e Pipenv ]; then
+    if [ -e Pipfile ]; then
         pipenv lock -r  > requirements.txt
         pip3 install --upgrade --target deps/ -r requirements.txt
         ( cd deps; zip -r9 ../$PKG .)
