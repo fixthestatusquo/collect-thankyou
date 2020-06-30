@@ -2,8 +2,10 @@
 set -u
 set -e
 
-if [ -e env.json ]; then
-    VARIABLES="`cat env.json`"
+ENVFILE=${2:-env.json}
+
+if [ -e "$ENVFILE" ]; then
+    VARIABLES="`cat ${ENVFILE}`"
 else
     VARIABLES="{}"
 fi

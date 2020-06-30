@@ -4,7 +4,7 @@ eml = Email("https://collect-backend.campax.org/wp-json/wp/v2/campaign/51", send
 
 eml.fetch()
 
-eml.add_attachment('article-for-you.pdf', open('../test/test.pdf', 'rb').read())
+eml.add_attachment('article-for-you.pdf', open('test/test.pdf', 'rb').read())
 
 contact = {
     'firstName': 'Marcin',

@@ -10,6 +10,9 @@ import os
 import logging
 
 
+log = logging.getLogger('collect')
+
+
 class Email:
     @staticmethod
     def address(name, email):
@@ -42,8 +45,8 @@ class Email:
                 _.subject = camp['acf']['thank_you_email_subject']
                 _.slug = camp['slug']
             except KeyError as e:
-                logging.error("no necessary keys in Campaign data:")
-                logging.error(camp)
+                log.error("no necessary keys in Campaign data:")
+                log.error(camp)
                 raise e
                 
         else:
