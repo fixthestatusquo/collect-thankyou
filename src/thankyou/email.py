@@ -12,6 +12,8 @@ import logging
 
 log = logging.getLogger('collect')
 
+class TemplateError(Exception):
+    pass
 
 class Email:
     @staticmethod
@@ -50,7 +52,7 @@ class Email:
                 raise e
                 
         else:
-            raise StandardError("Cannot fetch mail template ({})".format(resp.reason))
+            raise TemplateError("Cannot fetch mail template ({})".format(resp.reason))
 
     def add_attachment(_, filename, blob):
         _.attachments.append({'filename': filename, 'blob': blob})
