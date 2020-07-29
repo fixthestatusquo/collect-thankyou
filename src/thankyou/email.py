@@ -52,7 +52,7 @@ class Email:
                 raise e
                 
         else:
-            raise TemplateError("Cannot fetch mail template ({})".format(resp.reason))
+            raise TemplateError("Cannot fetch mail template from {} ({})".format(_.templateRef, resp.reason))
 
     def add_attachment(_, filename, blob):
         _.attachments.append({'filename': filename, 'blob': blob})
